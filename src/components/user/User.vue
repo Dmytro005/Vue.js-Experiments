@@ -1,7 +1,7 @@
 <template>
     <div>        
         <h1>The User Page {{id}}</h1>
-        <button class="btn btn-primary" @click="navigateHomeToHome">Go mone</button>
+        <button class="btn btn-primary" @click="navigateHomeToHome">Go Home</button>
         <hr>
         <router-view></router-view>
     </div>

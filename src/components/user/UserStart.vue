@@ -8,24 +8,13 @@
     </div>
 </template>
 <script>
+    import { mapGetters } from "vuex";
+    import { mapActions } from "vuex";
+
     export default {
         name: 'UserStart',
         data() {
             return {
-                users: [
-                    {
-                        id: 1,
-                        name: 'User 1',
-                    },
-                    {
-                        id: 2,
-                        name: 'User 2',
-                    },
-                    {
-                        id: 3,
-                        name: 'User 3',
-                    },
-                ],
             };
         },
         beforeRouteLeave: (to, from, next) => {
@@ -34,6 +23,15 @@
             }else { 
                 next(false);
             }
+        },
+        computed: {
+            ...mapGetters({
+                users: 'getUsers',
+            }),
+            ...mapActions(['loadUser'])
+        },
+        created(){
+            this.$store.dispatch('loadUser');
         }
     }
 </script>

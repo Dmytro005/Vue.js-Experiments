@@ -3,7 +3,7 @@
         <p>Please select a User</p>
         <hr>
         <ul class="list-group">
-            <router-link v-for="(user, key) in users" :to='{name: "userEdit", params: {id: key} }' :key="key"> {{user.name}}</router-link>
+            <router-link v-for="(user, key) in users" :to='{name: "userDetails", params: {id: key} }' :key="key"> {{user.name}}</router-link>
         </ul>
     </div>
 </template>
@@ -21,10 +21,10 @@
             ...mapGetters({
                 users: 'getUsers',
             }),
-            ...mapActions(['loadUser'])
+            ...mapActions(['loadUsers'])
         },
         created(){
-            this.$store.dispatch('loadUser');
+            this.$store.dispatch('loadUsers');
         }
     }
 </script>

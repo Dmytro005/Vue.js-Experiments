@@ -7,12 +7,5 @@
 </template>
 <script>
     export default {
-        // beforeRouteEnter: (to, from, next) => {
-        //     if (false) { 
-        //         next();
-        //     } else {
-        //         next(false);
-        //     }
-        // }
     }
 </script>

@@ -13,19 +13,26 @@
             </li>
         </ul>
         <router-link class="btn btn-warning" :to="{ path: '/user'}">back</router-link>
-        <router-link class="btn btn-warning" :to="{ name: 'userEdit', params: { id: $route.params.id}}">Edit</router-link>
-
+        <button class="btn btn-primary" @click='saveEditedUser($route.params.id)'>Edit</button>
     </div>
 </template>
 <script>
 import {mapGetters} from 'vuex';
+import {mapActions} from 'vuex';
 
 export default {
     name: 'UserEdit',
     computed: {
         ...mapGetters({
             users: 'getUsers',
-        })
-    }
+        }),
+        ...mapActions(['saveUserEdits']),
+    },
+    methods: {
+        saveEditedUser(id){
+            console.log(this.users[id]);
+            this.$store.dispatch('saveUserEdits', id);
+        }
+    },
 }
 </script>

@@ -3,7 +3,7 @@
         <p>Please select a User</p>
         <hr>
         <ul class="list-group">
-            <router-link v-for="(user, key) in users" :key="key" :to='"user/"+user.id' > {{user.name}}</router-link>
+            <router-link v-for="(user, key) in users" :to='{name: "userEdit", params: {id: key} }' :key="key"> {{user.name}}</router-link>
         </ul>
     </div>
 </template>
@@ -16,13 +16,6 @@
         data() {
             return {
             };
-        },
-        beforeRouteLeave: (to, from, next) => {
-            if(prompt('Are you sure you want to leave?', 'Yes')){
-                next();
-            }else { 
-                next(false);
-            }
         },
         computed: {
             ...mapGetters({

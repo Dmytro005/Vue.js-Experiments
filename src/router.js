@@ -17,7 +17,7 @@ const UserEdit = resolve =>{
   })
 }
 
-export const routes = [
+const routes = [
   {
     path: '',
     component: Home,
@@ -36,7 +36,7 @@ export const routes = [
       },
       {
         path: ':id/edit',
-        name: 'user/Edit',
+        name: 'userEdit',
         component: UserEdit,
       }
     ],
@@ -46,3 +46,5 @@ export const routes = [
     redirect: '/',
   }
 ];
+
+export default routes;

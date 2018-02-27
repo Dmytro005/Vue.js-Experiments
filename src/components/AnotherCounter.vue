@@ -1,35 +1,20 @@
 <template>
     <div>
-        <hr>
-        Another Counter <br>
-        <button class="btn btn-primary" @click="increment(100)">Increment with params</button>
-        <button class="btn btn-primary" @click="decrement({ by: 50, duration: 2000})">Decrement with params</button>
-        <br>
-        <input type="text" v-model="value">
-        <p>{{ value }}</p>
+        <button class="btn btn-primary" @click="asyncIncrement({by: 50, duration: 500})">Incremen 50</button>
+        <button class="btn btn-primary" @click="asyncDecrement({by: 50, duration: 500})">Decrement 50</button>
     </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
-import { mapActions } from 'vuex';
+    import {mapActions} from 'vuex';
+    import * as types from '../store/types';
+
     export default {
-      computed: {
-        value: {
-          get() {
-            return this.$store.getters.value;
-          },
-          set(value) {
-            this.$store.dispatch('updateValue', value);
-          }
+        methods: {
+            ...mapActions({
+                asyncIncrement: types.COUNTER_INCREMENT_ASYNC,
+                asyncDecrement: types.COUNTER_DECREMENT_ASYNC
+            })
         }
-      },
-      methods: {
-        ...mapActions([
-            'increment',
-            'decrement',
-            'asyncIncrement',
-          ]),
-      }
     }
 </script>

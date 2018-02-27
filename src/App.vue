@@ -1,31 +1,28 @@
-  <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>Routing</h1>
-          <hr>
-          <app-header></app-header>
-          <hr>
-          <transition
-            enter-active-class="animated fadeInLeft"
-            mode="out-in"
-            >
-            <router-view></router-view>
-          </transition>
-      </div>
+<template>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <h1>Vuex</h1>
+                <app-result></app-result>
+                <app-another-result></app-another-result>
+                <hr>
+                <app-counter></app-counter>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-import Header from './components/shared/Header.vue'
+    import Counter from './components/Counter.vue';
+    import Result from './components/Result.vue';
+    import AnotherResult from './components/AnotherResult.vue';
 
-export default {
-  components: {
-    appHeader: Header,
-  },
-};
+    export default {
+        components: {
+            appCounter: Counter,
+            appResult: Result,
+            appAnotherResult: AnotherResult,
+        }
+    }
 </script>
-<style>
 
-</style>

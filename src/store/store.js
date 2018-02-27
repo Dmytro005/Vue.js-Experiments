@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     counter: 0,
+    value: 0,
   },
   getters: {
     doubleCounter: state => {
@@ -13,6 +14,9 @@ export const store = new Vuex.Store({
     },
     stringCounter: state => {
       return state.counter + 'Clicks';
+    },
+    value: state => {
+      return state.value
     }
   },
   mutations: {
@@ -21,6 +25,9 @@ export const store = new Vuex.Store({
     },
     decrement: (state, playload) => {
       state.counter -=playload;
+    },
+    updateValue: (state, playload) => {
+      state.value = playload;
     },
   },
   actions: {
@@ -36,6 +43,9 @@ export const store = new Vuex.Store({
       setTimeout(() => {
         commit('increment');
       }, 2000);
-    }
+    },
+    updateValue: ({commit}, playload) => {
+      commit('updateValue', playload);
+    },
   }
 })

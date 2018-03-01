@@ -1,31 +1,23 @@
-  <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>Routing</h1>
-          <hr>
-          <app-header></app-header>
-          <hr>
-          <transition
-            enter-active-class="animated fadeInLeft"
-            mode="out-in"
-            >
-            <router-view></router-view>
-          </transition>
-      </div>
-    </div>
+<template>
+  <div id="app">
+    <app-header />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from './components/shared/Header.vue'
-
-export default {
-  components: {
-    appHeader: Header,
-  },
-};
+  import Header from './components/header/header.vue'
+  export default {
+    name: 'app',
+    components: {
+      'app-header': Header
+    }
+  }
 </script>
-<style>
 
+<style>
+  body, html {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 </style>
